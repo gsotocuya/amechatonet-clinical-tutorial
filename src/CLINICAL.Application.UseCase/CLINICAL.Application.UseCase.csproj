@@ -6,4 +6,17 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CLINICAL.Application.Dtos\CLINICAL.Application.Dtos.csproj" />
+      <ProjectReference Include="..\CLINICAL.Application.Interfaces\CLINICAL.Application.Interfaces.csproj" />
+      <ProjectReference Include="..\CLINICAL.Domain\CLINICAL.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.6.0" />
+      <PackageReference Include="MediatR" Version="12.0.1" />
+    </ItemGroup>
+
 </Project>
