@@ -18,3 +18,20 @@ BEGIN
 END
 
 exec uspAnalysisList
+
+CREATE OR ALTER PROCEDURE uspAnalysisById
+(
+    @AnalysisId int
+)
+AS
+BEGIN
+    SELECT
+        AnalysisId,
+        Name
+    FROM Analysis
+    WHERE AnalysisId = @AnalysisId;
+END
+
+SELECT * FROM Analysis
+
+uspAnalysisById 1

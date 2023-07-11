@@ -11,5 +11,8 @@ public class AnalysisMappingsProfile : Profile
         CreateMap<Analysis, GetAllAnalysisResponseDto>()
             .ForMember(x => x.StateAnalysis, x => x.MapFrom(y => y.State == 1 ? "ACTIVO" : "INACTIVO"))
             .ReverseMap();
+
+        CreateMap<Analysis, GetAnalysisByIdResponseDto>()
+            .ReverseMap();
     }
 }

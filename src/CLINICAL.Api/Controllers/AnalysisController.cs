@@ -1,4 +1,5 @@
 using CLINICAL.Application.UseCase.UseCases.Analysis.Queries.GetAllQuery;
+using CLINICAL.Application.UseCase.UseCases.Analysis.Queries.GetByIdQuery;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,13 @@ public class AnalysisController : ControllerBase
     public async Task<IActionResult> ListAnalysis()
     {
         var response = await _mediator.Send(new GetAllAnalysisQuery());
+        return Ok(response);
+    }
+
+    [HttpGet("{analysisId:int}")]
+    public async Task<IActionResult> AnalysisById(int analysisId)
+    {
+        var response = await _mediator.Send(new GetAnalysisByIdQuery(){AnalysisId = analysisId});
         return Ok(response);
     }
 }
