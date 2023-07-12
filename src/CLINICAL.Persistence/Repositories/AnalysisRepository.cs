@@ -32,4 +32,17 @@ public class AnalysisRepository : IAnalysisRepository
         var analysis = await connection.QuerySingleOrDefaultAsync<Analysis>(query, param: parameters, commandType: CommandType.StoredProcedure);
         return analysis;
     }
+
+    public async Task<bool> AnalysisRegister(Analysis analysis)
+    {
+        using var connection = _context.CreateConnection;
+        var query = "uspAnalysisRegister";
+        var parameters = new DynamicParameters();
+        parameters.Add("Name", analysis.Name);
+        parameters.Add("State", 1);
+        parameters.Add("AuditCreateDate", DateTime.Now);
+        var recordsAffected =
+            await connection.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
+        return recordsAffected > 0;
+    }
 }
