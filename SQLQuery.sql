@@ -34,4 +34,38 @@ END
 
 SELECT * FROM Analysis
 
-uspAnalysisById 1
+uspAnalysisById 
+
+CREATE PROCEDURE uspAnalysisRegister
+(
+    @Name varchar(100),
+    @State int,
+    @AuditCreateDate DATETIME
+)
+AS
+BEGIN
+    INSERT INTO Analysis
+        (
+            Name,
+            State,
+            AuditCreateDate
+        )
+    VALUES
+        (
+            @Name,
+            @State,
+            @AuditCreateDate
+        )
+END
+
+CREATE PROCEDURE uspAnalysisEdit
+(
+    @AnalysisId int,
+    @Name varchar(50)
+)
+AS
+BEGIN 
+    UPDATE Analysis
+        SET Name = @Name
+    WHERE AnalysisId = @AnalysisId
+END
