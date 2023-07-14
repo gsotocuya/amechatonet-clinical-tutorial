@@ -1,4 +1,5 @@
 using CLINICAL.Application.UseCase.UseCases.Analysis.Commands.CreateCommand;
+using CLINICAL.Application.UseCase.UseCases.Analysis.Commands.RemoveCommand;
 using CLINICAL.Application.UseCase.UseCases.Analysis.Commands.UpdateCommand;
 using CLINICAL.Application.UseCase.UseCases.Analysis.Queries.GetAllQuery;
 using CLINICAL.Application.UseCase.UseCases.Analysis.Queries.GetByIdQuery;
@@ -31,7 +32,7 @@ public class AnalysisController : ControllerBase
         return Ok(response);
     }
 
-    [HttpPost("egister")]
+    [HttpPost("register")]
     public async Task<IActionResult> RegisterAnalysis([FromBody] CreateAnalysisCommand command)
     {
         var response = await _mediator.Send(command);
@@ -42,6 +43,13 @@ public class AnalysisController : ControllerBase
     public async Task<IActionResult> EditAnalysis([FromBody] UpdateAnalysisCommand command)
     {
         var response = await _mediator.Send(command);
+        return Ok(response);
+    }
+
+    [HttpDelete("remove/{analysisId:int}")]
+    public async Task<IActionResult> RemoveAnalysis(int analysisId)
+    {
+        var response = await _mediator.Send(new DeleteAnalysisCommand() { AnalysisId = analysisId });
         return Ok(response);
     }
 }

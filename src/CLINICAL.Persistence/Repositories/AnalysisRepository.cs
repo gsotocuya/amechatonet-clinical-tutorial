@@ -42,7 +42,7 @@ public class AnalysisRepository : IAnalysisRepository
         parameters.Add("State", 1);
         parameters.Add("AuditCreateDate", DateTime.Now);
         var recordsAffected =
-            await connection.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
+            await connection.ExecuteAsync(query, param:parameters, commandType: CommandType.StoredProcedure);
         return recordsAffected > 0;
     }
 
@@ -54,7 +54,18 @@ public class AnalysisRepository : IAnalysisRepository
         parameters.Add("AnalysisId", analysis.AnalysisId);
         parameters.Add("Name", analysis.Name);
         var recordsAffected =
-            await connection.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
+            await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+        return recordsAffected > 0;
+    }
+
+    public async Task<bool> AnalysisRemove(int analysisId)
+    {
+        using var connection = _context.CreateConnection;
+        var query = "uspAnalysisRemove";
+        var parameters = new DynamicParameters();
+        parameters.Add("AnalysisId", analysisId);
+        var recordsAffected =
+            await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
         return recordsAffected > 0;
     }
 }

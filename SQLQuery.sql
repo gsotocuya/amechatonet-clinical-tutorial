@@ -69,3 +69,17 @@ BEGIN
         SET Name = @Name
     WHERE AnalysisId = @AnalysisId
 END
+
+CREATE PROCEDURE uspAnalysisRemove
+(
+    @AnalysisId INT
+)
+AS
+BEGIN 
+    DELETE FROM Analysis
+    WHERE AnalysisId = @AnalysisId
+END
+
+uspAnalysisRemove 1
+    
+    select * from Analysis
