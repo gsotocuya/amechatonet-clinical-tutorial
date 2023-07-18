@@ -1,4 +1,5 @@
 using System.Reflection;
+using CLINICAL.Application.UseCase.Commons.Behaviour;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,9 @@ public static class InjectionExtensions
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+        
+        
         return services;
     }
 }
