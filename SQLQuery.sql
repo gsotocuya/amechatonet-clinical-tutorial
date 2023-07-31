@@ -83,3 +83,31 @@ END
 uspAnalysisRemove 1
     
     select * from Analysis
+
+
+/*
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[uspAnalysisRegister]
+(
+    @Name varchar(100)
+)
+AS
+BEGIN
+    INSERT INTO Analysis
+        (
+            Name,
+            State,
+            AuditCreateDate
+        )
+    VALUES
+        (
+            @Name,
+            1,
+            GETDATE()
+        )
+END
+GO
+*/
