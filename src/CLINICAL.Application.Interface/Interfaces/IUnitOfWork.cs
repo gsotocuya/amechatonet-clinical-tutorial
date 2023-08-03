@@ -1,6 +1,6 @@
 using CLINICAL.Domain.Entities;
 
-namespace CLINICAL.Application.Interfaces.Interfaces;
+namespace CLINICAL.Application.Interface.Interfaces;
 
 public interface IUnitOfWork : IDisposable
 {

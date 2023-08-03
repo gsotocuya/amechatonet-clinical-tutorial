@@ -1,6 +1,5 @@
 using AutoMapper;
-using CLINICAL.Application.Interfaces;
-using CLINICAL.Application.Interfaces.Interfaces;
+using CLINICAL.Application.Interface.Interfaces;
 using CLINICAL.Application.UseCase.Commons.Bases;
 using MediatR;
 using Entity = CLINICAL.Domain.Entities;

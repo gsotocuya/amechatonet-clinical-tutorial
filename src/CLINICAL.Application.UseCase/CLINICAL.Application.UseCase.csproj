@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CLINICAL.Application.Dtos\CLINICAL.Application.Dtos.csproj" />
-      <ProjectReference Include="..\CLINICAL.Application.Interfaces\CLINICAL.Application.Interfaces.csproj" />
+      <ProjectReference Include="..\CLINICAL.Application.Interface\CLINICAL.Application.Interface.csproj" />
       <ProjectReference Include="..\CLINICAL.Domain\CLINICAL.Domain.csproj" />
     </ItemGroup>
 

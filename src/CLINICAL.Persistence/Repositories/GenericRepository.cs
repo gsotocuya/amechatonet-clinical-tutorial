@@ -1,5 +1,5 @@
 using System.Data;
-using CLINICAL.Application.Interfaces.Interfaces;
+using CLINICAL.Application.Interface.Interfaces;
 using CLINICAL.Persistence.Context;
 using Dapper;
 

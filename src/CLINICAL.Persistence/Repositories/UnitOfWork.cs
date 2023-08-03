@@ -1,4 +1,4 @@
-using CLINICAL.Application.Interfaces.Interfaces;
+using CLINICAL.Application.Interface.Interfaces;
 using CLINICAL.Domain.Entities;
 
 namespace CLINICAL.Persistence.Repositories;

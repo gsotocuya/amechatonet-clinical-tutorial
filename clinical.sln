@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLINICAL.Utilities", "src\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLINICAL.Application.Dtos", "src\CLINICAL.Application.Dtos\CLINICAL.Application.Dtos.csproj", "{92572E8B-4E8B-410F-8FC6-65145CD97936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLINICAL.Application.Interfaces", "src\CLINICAL.Application.Interfaces\CLINICAL.Application.Interfaces.csproj", "{7D86D558-B589-4D5C-B80B-905E5F39265A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLINICAL.Application.Interface", "src\CLINICAL.Application.Interface\CLINICAL.Application.Interface.csproj", "{7D86D558-B589-4D5C-B80B-905E5F39265A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLINICAL.Domain", "src\CLINICAL.Domain\CLINICAL.Domain.csproj", "{6619A32A-7D3B-474E-B34C-70FEE259E6D8}"
 EndProject

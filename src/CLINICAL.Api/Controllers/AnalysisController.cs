@@ -1,3 +1,4 @@
+using CLINICAL.Application.UseCase.UseCases.Analysis.Commands.ChangeStateCommand;
 using CLINICAL.Application.UseCase.UseCases.Analysis.Commands.CreateCommand;
 using CLINICAL.Application.UseCase.UseCases.Analysis.Commands.RemoveCommand;
 using CLINICAL.Application.UseCase.UseCases.Analysis.Commands.UpdateCommand;
@@ -50,6 +51,13 @@ public class AnalysisController : ControllerBase
     public async Task<IActionResult> RemoveAnalysis(int analysisId)
     {
         var response = await _mediator.Send(new DeleteAnalysisCommand() { AnalysisId = analysisId });
+        return Ok(response);
+    }
+    
+    [HttpPut("ChangeState")]
+    public async Task<IActionResult> ChangeStateAnalysis([FromBody] ChangeStateAnalysisCommand command)
+    {
+        var response = await _mediator.Send(command);
         return Ok(response);
     }
 }

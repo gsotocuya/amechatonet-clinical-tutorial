@@ -111,3 +111,15 @@ BEGIN
 END
 GO
 */
+
+CREATE OR ALTER PROCEDURE uspAnalysisChangeState
+(
+    @AnalysisId int,
+    @State int
+)
+AS
+BEGIN
+    UPDATE Analysis
+    SET [State] = @State
+    WHERE AnalysisId = @AnalysisId
+END
