@@ -2,6 +2,7 @@ using AutoMapper;
 using CLINICAL.Application.Dtos.Response;
 using CLINICAL.Application.Interface.Interfaces;
 using CLINICAL.Application.UseCase.Commons.Bases;
+using CLINICAL.Utilities.Constants;
 using MediatR;
 
 namespace CLINICAL.Application.UseCase.UseCases.Analysis.Queries.GetAllQuery;
@@ -22,7 +23,7 @@ public class GetAllAnalysisHandler : IRequestHandler<GetAllAnalysisQuery, BaseRe
         var response = new BaseResponse<IEnumerable<GetAllAnalysisResponseDto>>();
         try
         {
-            var analysis = await _unitOfWork.Analysis.GetAllASync("uspAnalysisList");
+            var analysis = await _unitOfWork.Analysis.GetAllASync(SP.uspAnalysisList);
             if (analysis is not null)
             {
                 response.IsSuccess = true;

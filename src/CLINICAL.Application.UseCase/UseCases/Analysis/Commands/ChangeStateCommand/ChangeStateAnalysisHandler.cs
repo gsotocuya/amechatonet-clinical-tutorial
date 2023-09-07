@@ -1,6 +1,8 @@
 using AutoMapper;
 using CLINICAL.Application.Interface.Interfaces;
 using CLINICAL.Application.UseCase.Commons.Bases;
+using CLINICAL.Utilities.Constants;
+using CLINICAL.Utilities.HelperExtensions;
 using Entity = CLINICAL.Domain.Entities;
 using MediatR;
 
@@ -23,8 +25,9 @@ public class ChangeStateAnalysisHandler : IRequestHandler<ChangeStateAnalysisCom
         try
         {
             var analysis = _mapper.Map<Entity.Analysis>(request);
-            var parameters = new { analysis.AnalysisId, analysis.State };
-            response.Data = await _unitOfWork.Analysis.ExecAsync("uspAnalysisChangeState", parameters);
+            var parameters = analysis.GetPropertiesWithValues
+                ();
+            response.Data = await _unitOfWork.Analysis.ExecAsync(SP.uspAnalysisChangeState, parameters);
 
             if (response.Data)
             {
